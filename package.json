@@ -1,0 +1,26 @@
+{
+  "name": "alifeofnone",
+  "version": "1.0.0",
+  "description": "website for fearing",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "smash": "gulp buildStyles watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/napacreativeco/fearing.git"
+  },
+  "author": "James Rogers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/napacreativeco/fearing/issues"
+  },
+  "homepage": "https://github.com/napacreativeco/fearing#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.50.0"
+  }
+}
