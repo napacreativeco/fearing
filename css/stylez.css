@@ -153,23 +153,7 @@ main::before {
   -webkit-animation: stroker 2s forwards;
           animation: stroker 2s forwards;
 }
-footer svg#logo {
-  fill: rgba(255, 255, 255, 0.0);
-  stroke-width: 1px;
-  min-width: 100px;
-  min-height: 100px;
-  width: 100px;
-  max-width: 80vh;
-  max-height: 80vh;
-  margin: 10px auto;
-  -webkit-transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, -webkit-transform 1s;
-  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, -webkit-transform 1s;
-  -o-transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s;
-  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s;
-  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s, -webkit-transform 1s;
-  -webkit-animation: stroker 2s forwards;
-          animation: stroker 2s forwards;
-}
+
 
 /* Progress Bar */
 .progress-bar {
@@ -554,7 +538,6 @@ nav.desktop button:hover {
   font-family: var(--block-text);
   font-weight: var(--normal-weight);
   font-style: bold;
-  font-size: 8vw;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -579,8 +562,8 @@ nav.desktop button:hover {
 .social span {
   border: 1px solid #fff;
   border-radius: 50px;
-  padding: 16px 20px 10px 20px;
-  font-size: 2.5rem;
+  padding: 24px 20px 10px 20px;
+  font-size: 5vw;
   font-weight: var(--normal-weight);
   transition: all 0.3s;
 }
@@ -624,6 +607,24 @@ footer {
   z-index: -1;
   bottom: 0;
   left: 50%;
+  transform: translate(-50%, 0%);
+}
+footer svg#logo {
+  fill: rgba(255, 255, 255, 0.0);
+  stroke-width: 1px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 100px;
+  max-width: 80vh;
+  max-height: 80vh;
+  margin: 10px auto;
+  -webkit-transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, -webkit-transform 1s;
+  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, -webkit-transform 1s;
+  -o-transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s;
+  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s;
+  transition: fill 400ms ease-in-out, stroke-width 1s ease-in-out, transform 1s, -webkit-transform 1s;
+  -webkit-animation: stroker 2s forwards;
+          animation: stroker 2s forwards;
 }
 
 /*
@@ -632,21 +633,13 @@ footer {
 * ------------------------
 */
 @media (max-width: 991px) {
-  /* .app {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    right: 0%;
-    bottom: 0%;
-    height: 100%;
-    overflow-y: scroll;
+  .cursor-dot,
+  .cursor-dot-outline {
+    display: none;
   }
-
-  body, .body, .app {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  } */
-  
+  nav.desktop {
+    min-height: 60vh;
+  }
   .euro-tour--container {
     padding: 10px;
   }
@@ -656,14 +649,23 @@ footer {
   .link.discog {
     margin: 30px 0;
   }
+  .content__img {
+    
+  }
+  img.content__img {
+    display: none;
+  }
   .social {
-    padding: 10px;
+    padding: 30px 10px;
   }
   .loading svg#logo {
     max-width: 50vw;
   }
   .marquee {
-    display: none;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 80px 0;
+    margin-bottom: 100px;
   }
 }
 

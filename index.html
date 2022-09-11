@@ -340,7 +340,7 @@
             </svg>
 
             <div class="loading-success">
-                <p class="loading-msg">Loading</p>
+                <p class="loading-msg">Connecting</p>
                 <div class="progress-bar">
                     <span class="progress">&nbsp;</span>
                 </div>
@@ -351,8 +351,6 @@
 
     </div>
 
-
-    
     <!--
     *
     * DESKTOP
@@ -396,11 +394,7 @@
                 * DISCOGRAPHY
                 *
                 -->
-                <div class="link-container" data-aos="fade-up">
-
-                    <div id="discography" class="section-header">
-                        <h2 class="headline--letter-spacing">Discography</h2>
-                    </div>
+                <div class="link-container">
 
                     <div class="discog link">
                         <a class="h1 headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/desolate" title="Desolate" aria-label="link-1" target="_blank" rel="noopener" draggable="false">Desolate</a>
@@ -449,45 +443,42 @@
 
                     <div id="contact"></div>
 
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/merch" title="Merchandise" target="_blank" rel="noopener" draggable="false">
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/merch" title="Merchandise" target="_blank" rel="noopener" draggable="false">
                         <span>Merchandise</span>
                     </a>
 
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
                         <span>Bandcamp</span>
                     </a>
                     
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
                         <span>Instagram</span>
                     </a>
     
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">                           
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">                           
                         <span>Spotify</span>            
                     </a>
     
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">                          
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">                          
                         <span>Tik Tok</span>
                     </a>
     
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
                         <span>Apple Music</span>
                     </a>
     
-                    <a class="headline--letter-spacing flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
+                    <a class="flasherDim" href="https://fearing.bandcamp.com/album/shadow-2" title="Shadow" target="_blank" rel="noopener" draggable="false">
                         <span>Facebook</span>
                     </a>    
                                     
                 </div>
           
-
-
-
                 <!--
                 *
                 * MARQUEE
                 *
                 -->
-                <div class="marquee" onclick="window.location='/shows';">
+                <div class="marquee" onclick="window.open('/img/deathbells-fearing-european-tour.jpg');">
 
                     EUROPEAN TOUR WITH DEATH BELLS OCT. 4 - 26&nbsp;
                     EUROPEAN TOUR WITH DEATH BELLS OCT. 4 - 26&nbsp;
@@ -498,7 +489,7 @@
                     EUROPEAN TOUR WITH DEATH BELLS OCT. 4 - 26&nbsp;
                     EUROPEAN TOUR WITH DEATH BELLS OCT. 4 - 26&nbsp;
                     EUROPEAN TOUR WITH DEATH BELLS OCT. 4 - 26&nbsp;
-                    
+
                 </div>
                 
              
@@ -890,9 +881,17 @@
             // Play logo trace
             logoAnimation.play();
 
-            // Start RGB effect
-            const effect = new RGBShiftEffect(container, itemsWrapper, { strength: 0.95 });
-            const effectTwo = new RGBShiftEffect(container, itemsWrapperTwo, { strength: 0.95 });
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                function nameFunction() {
+                    return false;
+                }
+            } else {
+                // Start RGB effect
+                const effect = new RGBShiftEffect(container, itemsWrapper, { strength: 0.95 });
+                const effectTwo = new RGBShiftEffect(container, itemsWrapperTwo, { strength: 0.95 });
+            }
+            
+
             
         });
 	</script>
@@ -905,6 +904,17 @@
     <script src="js/aos.min.js"></script>
     <script>
         AOS.init();
+    </script>
+
+    <script>
+        $(window).load(function() {
+            if($(window).width() <= 767) {
+                $('img.content__img').hide();
+            } else {
+                console.log('check')
+            }
+        })
+
     </script>
     
     <!---
@@ -939,7 +949,7 @@
                     $('#logo').css({
                         opacity: '0'
                     });
-                    $('.loading-wrapper').html('<span class="success-msg">Access Granted</span>');
+                    $('.loading-wrapper').html('<span class="success-msg">[Access Granted]</span>');
                 }, 2000);
 
                 setTimeout(() => {
@@ -967,19 +977,10 @@
                 var $divided = $height / 8;
                 var $lessdivided = $height / 2;
 
-                $('nav > svg').css({
+                $('footer > svg').css({
                     // height: 99 - $divided + 'vh',
                     transform: 'rotateY(' + $divided + 'deg)'
                 });
-
-                // $('#logo > path').removeClass('flashingDim');
-                // $('#logo').appendTo( $('body') );
-                // $('#logo').css({
-                //     position: 'fixed',
-                //     zIndex: '999999999999',
-                //     top: '10px',
-                //     transform: 'translateX(-50%)'
-                // })
 
             });
         }
@@ -999,7 +1000,7 @@
     <script charset="utf-8">
         slick.momentumScroll({
             root: ".container",
-            duration: 900,
+            duration: 1900,
             onScroll: scrollMe,
         });
 
