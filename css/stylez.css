@@ -15,6 +15,7 @@
   --thick-weight: 400;
   --normal-weight: 400;
   --thin-weight: 200;
+  --grey: rgba(255, 255, 255, 0.9);
 }
 
 .headline--letter-spacing {
@@ -67,8 +68,26 @@ body *,
   cursor: none;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 main::before {
   z-index: -1;
+}
+
+small {
+  font-size: 60%;
+}
+
+.hide {
+  display: none;
 }
 
 .cursor-dot,
@@ -146,6 +165,7 @@ main::before {
           align-items: center;
   width: 100vw;
   height: 100vh;
+  text-align: center;
 }
 .wrap {
   position: relative;
@@ -193,8 +213,21 @@ main::before {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-.success-msg {
+.success-msg,
+small {
   text-align: center;
+  animation: success-flash 300ms infinite;
+}
+small {
+  width: 100%;
+}
+@keyframes success-flash {
+  0% { opacity: 0.6; }
+  20% { opacity: 0.9; }
+  30% { opacity: 0.7; }
+  70% { opacity: 0.9; }
+  90% { opacity: 0.5; }
+  100% { opacity: 0.6; }
 }
 .loading-msg {
   position: relative;
@@ -373,10 +406,10 @@ main::before {
 
 /*
 *
-* Navigation
+* Header
 *
 */
-nav.desktop {
+header.desktop {
   /* position: fixed; */
   top: 10px;
   left: 10px;
@@ -393,13 +426,13 @@ nav.desktop {
   width: 100%;
   min-height: 100vh;
 }
-nav.desktop span {
+header.desktop span {
   font-size: 12vw;
   line-height: 0.8;
   font-family: var(--block-text);
     font-weight: var(--thick-weight);
 }
-nav.desktop img {
+header.desktop img {
   width: 100vw;
 }
 .euro-tour--container {
@@ -408,14 +441,14 @@ nav.desktop img {
   align-items: center;
   padding: 40px;
 }
-nav.desktop button {
+header.desktop button {
   display: block;
   margin: 20px 0 0 0;
   padding: 10px 20px;
   background: white;
   color: #000;
 }
-nav.desktop button:hover {
+header.desktop button:hover {
   display: block;
   margin: 20px 0 0 0;
   padding: 10px 20px;
@@ -460,7 +493,7 @@ nav.desktop button:hover {
   /* margin: 0 0 120px 0 !important; */
 }
 .discog a.h1 {
-  padding: 20px 0 0 0;
+  padding: 20px 20px 0 0;
   text-align: center;
   display: inline-block;
   font-family: var(--block-text);
@@ -474,7 +507,8 @@ nav.desktop button:hover {
   text-decoration: none;
   color: inherit;
   cursor: none;
-  color: rgba(100, 100, 100, 0.9);
+  color: rgba(255,255,255, 0);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -483,10 +517,9 @@ nav.desktop button:hover {
   overflow: hidden;
 }
 .discog a.h1:hover {
-  color: rgba(0, 0, 0, 0);
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
-  -webkit-animation: flasherDim 0.4s infinite;
-  animation: flasherDim 0.4s infinite;
+  -webkit-text-stroke: 1px var(--grey);
+  -webkit-animation: flasherBright 0.1s infinite;
+  animation: flasherBright 0.1s infinite;
 }
 
 
@@ -497,6 +530,13 @@ nav.desktop button:hover {
   80% { color: rgba(255, 255, 255, 0.0); }
   100% { color: rgba(255, 255, 255, 0.02); }
 }
+@keyframes flasherBright {
+  0% { color: rgba(255, 255, 255, 0.7); }
+  40% { color: rgba(255, 255, 255, 0.8); }
+  50% { color: rgba(255, 255, 255, 0.9); }
+  80% { color: rgba(255, 255, 255, 0.8); }
+  100% { color: rgba(255, 255, 255, 0.9); }
+}
 
 .desc {
   margin-top: 0.2rem;
@@ -505,7 +545,7 @@ nav.desktop button:hover {
   font-weight: var(--thin-weight);
   font-style: normal;
   text-align: center;
-  color: rgba(100, 100, 100, 0.9);
+  color: var(--grey);
   font-size: 80%;
 }
 .link img {
@@ -530,7 +570,7 @@ nav.desktop button:hover {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: rgba(100, 100, 100, 0.9);
+  color: var(--grey);
   text-decoration: none;
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
@@ -598,6 +638,7 @@ nav.desktop button:hover {
   width: 100%;
   height: auto;
   font-size: 8rem;
+  padding-bottom: 220px;
 }
 
 .marquee-hover {
@@ -661,7 +702,7 @@ footer svg#logo {
     cursor: inherit;
   }
   /* Nav */
-  nav.desktop {
+  header.desktop {
     min-height: 60vh;
   }
   .euro-tour--container {
