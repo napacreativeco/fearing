@@ -19,8 +19,13 @@
   "homepage": "https://github.com/napacreativeco/fearing#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-connect": "^5.7.0",
+    "gulp-livereload": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "sass": "^1.50.0"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.5"
   }
 }

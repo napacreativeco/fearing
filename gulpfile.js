@@ -1,29 +1,28 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var connect = require('gulp-connect');
+const { series } = require('gulp');
+const gulp = require('gulp');
+var sass = require('gulp-sass');        
+var prefix = require('gulp-autoprefixer');
+var livereload = require('gulp-livereload');
 
-gulp.task('connect', function(){
-  connect.server({
-    root: 'public',
-    livereload: true
-  });
+function errorLog(error) {
+  console.error.bind(error);
+}
+
+gulp.task('sass', function() {
+  gulp.src('css/*.scss')
+    .pipe(sass({
+      style: 'expanded'
+    }))
+    .on('error', errorLog)
+    .pipe(prefix('last 2 versions'))
+    .pipe(gulp.dest('dist/'))
+    .pipe(livereload());
 });
 
-// keeps gulp from crashing for scss errors
-gulp.task('sass', function () {
-  return gulp.src('./sass/*.scss')
-      .pipe(sass({ errLogToConsole: true }))
-      .pipe(gulp.dest('./css'));
+// WATCH
+gulp.task('watch', function() {
+  gulp.watch('css/*.scss', ['sass']);
 });
 
-gulp.task('livereload', function (){
-  gulp.src('./**/*')
-  .pipe(connect.reload());
-});
-
-gulp.task('watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
-  gulp.watch('./public/**/*', ['livereload']);
-});
-
-gulp.task('default', ['connect', 'watch', 'sass']);
+// DEFAULT
+exports.default = series(sass, watch);
