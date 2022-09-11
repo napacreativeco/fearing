@@ -882,17 +882,11 @@
             
             const mediaQuery = window.matchMedia('(min-width: 768px)');
      
-            window.onresize = (event) => {
                 if (mediaQuery.matches) {
                     // Start RGB effect
                     const effect = new RGBShiftEffect(container, itemsWrapper, { strength: 0.95 });
                     const effectTwo = new RGBShiftEffect(container, itemsWrapperTwo, { strength: 0.95 });
-                } else {
-                    const effect = '';
-                    const effectTwo = '';
-                }
-                
-            };
+                };
             
 
             

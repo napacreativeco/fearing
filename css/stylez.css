@@ -632,10 +632,19 @@ footer svg#logo {
 * ------------------------
 */
 @media (max-width: 991px) {
+  /* Cursor */
   .cursor-dot,
   .cursor-dot-outline {
     display: none;
   }
+  html,
+  html *,
+  body,
+  body *,
+  .container * {
+    cursor: none;
+  }
+  /* Nav */
   nav.desktop {
     min-height: 60vh;
   }
