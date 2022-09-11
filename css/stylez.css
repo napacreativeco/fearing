@@ -44,6 +44,7 @@ body {
   font-size: 0.85rem;
   line-height: 0.85rem;
   text-transform: uppercase;
+  overflow-x: hidden;
 }
 
 .body {
@@ -64,6 +65,10 @@ body,
 body *,
 .container * {
   cursor: none;
+}
+
+main::before {
+  z-index: -1;
 }
 
 .cursor-dot,
@@ -331,7 +336,7 @@ footer svg#logo {
 .grid {
   /* position: relative;
   z-index: 3; */
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 .container {
@@ -449,13 +454,13 @@ nav.desktop button:hover {
        -o-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
           transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   position: relative;
-  margin: 80px 0;
+  margin: 40px 0;
 }
 .link.discog::first-of-type {
   /* margin: 0 0 120px 0 !important; */
 }
 .discog a.h1 {
-  padding-top: 0.9rem;
+  padding: 20px 0;
   text-align: center;
   display: inline-block;
   font-family: var(--block-text);
@@ -618,6 +623,7 @@ footer {
   position: fixed;
   z-index: -1;
   bottom: 0;
+  left: 50%;
 }
 
 /*
@@ -646,6 +652,9 @@ footer {
   }
   .link-container {
     padding: 10px;
+  }
+  .link.discog {
+    margin: 30px 0;
   }
   .social {
     padding: 10px;
