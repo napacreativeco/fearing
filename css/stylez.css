@@ -642,7 +642,7 @@ footer svg#logo {
   body,
   body *,
   .container * {
-    cursor: none;
+    cursor: inherit;
   }
   /* Nav */
   nav.desktop {
