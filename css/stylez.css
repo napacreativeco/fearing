@@ -105,6 +105,22 @@ main::before {
   background-color: rgba(255, 255, 255, 0);
 }
 
+/* Letter Flip */
+.letter-flip--h {
+  display: inline-block;
+  transform: scale(1, 1);
+}
+.discog.link:hover .letter-flip--h {
+  transform: scale(-1, 1);
+  margin-left: 3px;
+}
+.letter-flip--v {
+  display: inline-block;
+  transform: scale(1, 1);
+}
+.discog.link:hover .letter-flip--v {
+  transform: scale(1, -1) translate(0%, 25%);
+}
 
 /*
 *
@@ -452,7 +468,7 @@ nav.desktop button:hover {
   font-style: bold;
   font-size: 18vw;
   line-height: 0.7;
-  line-break: normal;
+  word-break: keep-all;
   text-transform: uppercase;
   text-align: left;
   text-decoration: none;
