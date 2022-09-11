@@ -444,7 +444,7 @@ nav.desktop button:hover {
   /* margin: 0 0 120px 0 !important; */
 }
 .discog a.h1 {
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   text-align: center;
   display: inline-block;
   font-family: var(--block-text);
@@ -649,7 +649,7 @@ footer svg#logo {
     min-height: 60vh;
   }
   .euro-tour--container {
-    padding: 10px;
+    padding: 80px 10px 10px 10px;
   }
   .link-container {
     padding: 10px;
